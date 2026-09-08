@@ -495,6 +495,37 @@ table{border-collapse:collapse;width:100%}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .gallery li:hover img{transform:scale(1.06)}
 
+/* ---- 厨房ストーリー（トップページ） ---- */
+.kitchen-story{padding-bottom:10rem}
+.kitchen-story__grid{
+  display:grid;grid-template-columns:1.14fr .86fr 1fr;grid-template-rows:30rem 30rem;
+  gap:1.6rem;margin-top:4.8rem;
+}
+.kitchen-story__photo{position:relative;overflow:hidden;background:#2d2926;min-width:0}
+.kitchen-story__photo--main{grid-row:1 / 3}
+.kitchen-story__photo--detail{grid-row:1 / 3}
+.kitchen-story__photo img{
+  width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .5s ease;
+}
+.kitchen-story__photo--main img{object-position:50% 42%}
+.kitchen-story__photo--detail img{object-position:50% 46%}
+.kitchen-story__photo--small img{object-position:50% 48%}
+.kitchen-story__photo::after{
+  content:'';position:absolute;inset:38% 0 0;
+  background:linear-gradient(to bottom,transparent,rgba(24,19,16,.86));pointer-events:none;
+}
+.kitchen-story__photo figcaption{
+  position:absolute;z-index:1;left:0;right:0;bottom:0;color:#fff;padding:2.4rem;
+}
+.kitchen-story__photo .step{
+  display:inline-block;background:var(--red);padding:.45rem .8rem;margin-bottom:.9rem;
+  font-size:1.1rem;font-weight:700;line-height:1;letter-spacing:.08em;
+}
+.kitchen-story__photo strong{display:block;font-size:1.7rem;line-height:1.55;letter-spacing:.02em}
+.kitchen-story__photo--main strong{font-size:2.2rem}
+.kitchen-story__photo p{font-size:1.3rem;line-height:1.8;margin-top:.7rem;color:rgba(255,255,255,.82)}
+.kitchen-story__photo:hover img{transform:scale(1.035);filter:saturate(1.04)}
+
 /* ---- 導入の流れ ---- */
 .flow{border-top:1px solid var(--line-2)}
 .flow li{display:grid;grid-template-columns:11rem 30rem 1fr;gap:0 3.2rem;align-items:baseline;border-bottom:1px solid var(--line-2);padding:3.4rem .8rem;position:relative}
@@ -751,6 +782,18 @@ table{border-collapse:collapse;width:100%}
   .voice{grid-template-columns:1fr;gap:1.6rem}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .gallery li:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+  .kitchen-story{padding-bottom:6.4rem}
+  .kitchen-story__grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;gap:1.2rem;margin-top:3.2rem}
+  .kitchen-story__photo--main{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+  .kitchen-story__photo--detail{grid-row:auto;aspect-ratio:3/4}
+  .kitchen-story__photo--small{aspect-ratio:3/4}
+  .kitchen-story__photo--small:last-child{grid-column:span 2;aspect-ratio:16/9}
+  .kitchen-story__photo--small:last-child img{object-position:50% 48%}
+  .kitchen-story__photo figcaption{padding:1.6rem}
+  .kitchen-story__photo--main figcaption{padding:2rem}
+  .kitchen-story__photo--main strong{font-size:1.9rem}
+  .kitchen-story__photo strong{font-size:1.4rem}
+  .kitchen-story__photo p{display:none}
   .flow li{grid-template-columns:1fr;gap:.6rem;padding:2.4rem .4rem}
   .flow .n{font-size:1.8rem}
   .flow h3{font-size:1.9rem}
